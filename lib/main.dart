@@ -1,3 +1,5 @@
+import 'package:app_chat/components/auth_form.dart';
+import 'package:app_chat/screen/auth_screen.dart';
 import 'package:app_chat/screen/loading_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoadingScreen(),
+      home: const AuthScreen(),
     );
   }
 }
