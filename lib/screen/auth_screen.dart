@@ -12,12 +12,23 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   bool _isLoading = false;
 
-  void _handleSubmit(AuthFormData formData) {
+  Future<void> _handleSubmit(AuthFormData formData) async {
+    try {
     setState(() =>_isLoading = true);
-    print('AuthPage...');
-    print(formData.email);
-    
+
+    if(formData.isLogin) {
+
+    } else {
+
+    }
+
+    } catch(error) {
+      //tratar erro
+    } finally {
     setState(() =>_isLoading = false);
+
+    }
+
   }
 
   @override
@@ -33,10 +44,10 @@ class _AuthScreenState extends State<AuthScreen> {
         ),
         if(_isLoading)
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color.fromRGBO(0, 0, 0, 0.5)
           ),
-          child: Center(child: CircularProgressIndicator()),
+          child: const Center(child: CircularProgressIndicator()),
         )
         ]
       ),
