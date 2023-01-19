@@ -5,6 +5,8 @@ import 'package:app_chat/core/models/chat_user.dart';
 abstract class AuthService {
   ChatUser? get currentUser;
 
+  Stream<ChatUser?> get UserChanges;
+
   Future<void> signup(
     String nome,
     String email,
