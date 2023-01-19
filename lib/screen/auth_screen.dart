@@ -1,5 +1,5 @@
 import 'package:app_chat/components/auth_form.dart';
-import 'package:app_chat/models/auth_form_data.dart';
+import 'package:app_chat/core/models/auth_form_data.dart';
 import 'package:flutter/material.dart';
 
 class AuthScreen extends StatefulWidget {
