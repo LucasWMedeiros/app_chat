@@ -1,4 +1,4 @@
-import 'package:app_chat/components/mensages.dart';
+import 'package:app_chat/components/messages.dart';
 import 'package:app_chat/components/new_mensage.dart';
 import 'package:app_chat/core/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
