@@ -1,5 +1,5 @@
 import 'package:app_chat/components/auth_form.dart';
-import 'package:app_chat/core/services/notifications/push_notifications_service.dart';
+import 'package:app_chat/core/services/notifications/chat_notifications_service.dart';
 import 'package:app_chat/screen/auth_or_app_screen.dart';
 import 'package:app_chat/screen/auth_screen.dart';
 import 'package:app_chat/screen/loading_screen.dart';
