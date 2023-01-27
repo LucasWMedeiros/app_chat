@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:app_chat/components/messages.dart';
 import 'package:app_chat/components/new_mensage.dart';
+import 'package:app_chat/core/models/chat_notification.dart';
 import 'package:app_chat/core/services/auth/auth_service.dart';
 import 'package:app_chat/core/services/notifications/chat_notifications_service.dart';
 import 'package:app_chat/screen/notification_screen.dart';
@@ -48,44 +51,44 @@ class ChatScreen extends StatelessWidget {
               },
             ),
           ),
-          Provider.of<ChatNotificationService>(context).items.isNotEmpty ? Stack(
-            children: [
-              IconButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (ctx) {
-                      return NotificationScreen();
-                    })
-                  );
-                },
-                icon: Icon(Icons.notifications),
-              ),
-              // ignore: prefer_const_constructors
-              Positioned(
-                top: 5,
-                right: 5,
-                child: CircleAvatar(
-                  backgroundColor: Colors.red.shade800,
-                  maxRadius: 10,
-                  child: Text(
-                    '${Provider.of<ChatNotificationService>(context).itemsCount}',
-                    style: TextStyle(
-                      fontSize: 12,
+          Provider.of<ChatNotificationService>(context).items.isNotEmpty
+              ? Stack(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (ctx) {
+                          return NotificationScreen();
+                        }));
+                      },
+                      icon: Icon(Icons.notifications),
                     ),
-                  ),
-                ),
-              )
-            ],
-          ) : IconButton(
-                onPressed: () {
-                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (ctx) {
+                    // ignore: prefer_const_constructors
+                    Positioned(
+                      top: 5,
+                      right: 5,
+                      child: CircleAvatar(
+                        backgroundColor: Colors.red.shade800,
+                        maxRadius: 10,
+                        child: Text(
+                          '${Provider.of<ChatNotificationService>(context).itemsCount}',
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              : IconButton(
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (ctx) {
                       return NotificationScreen();
-                    })
-                  );
-                },
-                icon: Icon(Icons.notifications),
-              ),
+                    }));
+                  },
+                  icon: Icon(Icons.notifications),
+                ),
         ],
       ),
       body: SafeArea(
@@ -96,6 +99,18 @@ class ChatScreen extends StatelessWidget {
           ],
         ),
       ),
+      // floatingActionButton: FloatingActionButton(
+      //   child: Icon(Icons.add),
+      //   onPressed: () {
+      //     Provider.of<ChatNotificationService>(
+      //       context,
+      //       listen: false,
+      //     ).add(ChatNotification(
+      //       title: 'Notificação de Teste!',
+      //       body: Random().nextDouble().toString(),
+      //     ));
+      //   },
+      // ),
     );
   }
 }
