@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "742633197910",
+    "project_id": "hunter-chat-9b603",
+    "storage_bucket": "hunter-chat-9b603.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742633197910:android:10040ca26d9aaa0c1406f7",
+        "android_client_info": {
+          "package_name": "com.hunter.hunterchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "742633197910-nie42qbaf1u4hcco19dfh09o181u3e58.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuD9yVT2r1hrsPGyeJ0zQqSGNn-pftalw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "742633197910-nie42qbaf1u4hcco19dfh09o181u3e58.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
