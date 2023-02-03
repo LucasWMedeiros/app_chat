@@ -2,7 +2,6 @@
 
 import 'dart:io';
 import 'dart:async';
-import 'dart:math';
 
 import 'package:app_chat/core/models/chat_user.dart';
 import 'package:app_chat/core/services/auth/auth_service.dart';
@@ -13,10 +12,8 @@ class AuthFirebaseService implements AuthService {
   static final _userStream = Stream<ChatUser?>.multi((controller) async {
     final authChanges = FirebaseAuth.instance.authStateChanges();
     await for (final user in authChanges) {
-      _currentUser = user == null
-          ? null
-          : _toChatUser(user);
-            controller.add(_currentUser);
+      _currentUser = user == null ? null : _toChatUser(user);
+      controller.add(_currentUser);
     }
   });
 
@@ -46,7 +43,12 @@ class AuthFirebaseService implements AuthService {
     // credential.user?.updatePhotoURL(photoURL);
   }
 
-  Future<void> login(String email, String password) async {}
+  Future<void> login(String email, String password) async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+  }
 
   Future<void> logout() async {
     FirebaseAuth.instance.signOut();
@@ -54,10 +56,10 @@ class AuthFirebaseService implements AuthService {
 
   static ChatUser _toChatUser(User user) {
     return ChatUser(
-              id: user.uid,
-              name: user.displayName ?? user.email!.split('@'[0]).toString(),
-              email: user.email!,
-              imageUrl: user.photoURL ?? 'app_chat/assets/images/avatar.png',
-            );
+      id: user.uid,
+      name: user.displayName ?? user.email!.split('@'[0]).toString(),
+      email: user.email!,
+      imageUrl: user.photoURL ?? 'app_chat/assets/images/avatar.png',
+    );
   }
 }
